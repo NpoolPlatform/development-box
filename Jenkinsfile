@@ -19,7 +19,7 @@ pipeline {
       }
       steps {
         sh 'mkdir -p .docker-tmp; cp /usr/bin/consul .docker-tmp; cp `which go` .docker-tmp'
-        sh 'docker build --build-arg ALL_PROXY=$all_proxy -t entropypool/development-box .'
+        sh 'docker build --build-arg=ALL_PROXY=$all_proxy -t entropypool/development-box .'
       }
     }
 
