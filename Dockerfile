@@ -11,7 +11,7 @@ ARG ALL_PROXY
 
 RUN all_proxy=$ALL_PROXY curl -sL -o /tmp/go1.16.7.tar.gz https://github.com/golang/go/archive/refs/tags/go1.16.7.tar.gz
 RUN mkdir -p /usr/local/go
-RUN cd /usr/local/go; tar xvvf go1.16.7.tar.gz
+RUN cd /usr/local/go; tar xvvf /tmp/go1.16.7.tar.gz
 RUN mv /usr/local/go/go-go1.16.7/* /usr/local/go
 RUN rm -rf /usr/local/go/go-go1.16.7
 RUN cd /usr/local/go/src; ./all.bash
