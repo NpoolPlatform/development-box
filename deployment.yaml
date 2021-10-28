@@ -16,7 +16,7 @@ spec:
       containers:
       - name: development-box
         image: entropypool/development-box:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         env:
         - name: ENV_ENVIRONMENT_TARGET
           valueFrom:
