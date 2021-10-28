@@ -9,7 +9,7 @@ RUN apt-get install git make curl jq wget apt-utils vim net-tools sudo iputils-p
 
 ARG ALL_PROXY
 
-all_proxy=$ALL_PROXY RUN curl -sL -o /tmp/go1.16.7.tar.gz https://github.com/golang/go/archive/refs/tags/go1.16.7.tar.gz
+RUN all_proxy=$ALL_PROXY curl -sL -o /tmp/go1.16.7.tar.gz https://github.com/golang/go/archive/refs/tags/go1.16.7.tar.gz
 RUN mkdir -p /usr/local/go
 RUN cd /usr/local/go; tar xvvf go1.16.7.tar.gz
 RUN mv /usr/local/go/go-go1.16.7/* /usr/local/go
