@@ -1,10 +1,6 @@
 FROM jrei/systemd-ubuntu:20.04
 
 USER root
-ARG ENV_ENVIRONMENT_TARGET
-ARG ENV_CONSUL_HOST
-ARG ENV_CONSUL_PORT
-ARG PATH
 
 RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 
@@ -15,4 +11,4 @@ COPY .docker-tmp/go /usr/bin/go
 COPY .docker-tmp/consul /usr/bin/consul
 ENV GOBIN=/usr/bin
 
-CMD ["sh"]
+CMD ["/bin/bash"]

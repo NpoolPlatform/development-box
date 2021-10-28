@@ -37,3 +37,5 @@ spec:
           value: "/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/bin"
         - name: GOPROXY
           value: "https://goproxy.cn,direct"
+        command: ["sleep", "100000000000000"]
+        
