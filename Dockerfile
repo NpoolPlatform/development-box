@@ -8,6 +8,7 @@ RUN apt-get update -y
 RUN apt-get install git make curl jq wget apt-utils vim net-tools sudo iputils-ping iproute2 openssh-server nfs-common dnsutils -y
 
 ARG ALL_PROXY
+RUN apt-get install golang-go -y
 
 RUN all_proxy=$ALL_PROXY curl -sL -o /tmp/go1.16.7.tar.gz https://github.com/golang/go/archive/refs/tags/go1.16.7.tar.gz
 RUN mkdir -p /usr/local/go
