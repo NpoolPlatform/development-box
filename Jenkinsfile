@@ -18,7 +18,7 @@ pipeline {
         expression { BUILD_TARGET == 'true' }
       }
       steps {
-        sh 'mkdir -p .docker-tmp; cp /usr/bin/consul .docker-tmp; cp `which go` .docker-tmp'
+        sh 'mkdir -p .docker-tmp; cp /usr/bin/consul .docker-tmp'
         sh 'docker build --build-arg=ALL_PROXY=$all_proxy -t entropypool/development-box .'
       }
     }
