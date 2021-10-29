@@ -19,6 +19,9 @@ RUN cd /usr/local/go/src; ./all.bash
 RUN cp /usr/local/go/bin/go /usr/bin/go
 
 COPY .docker-tmp/consul /usr/bin/consul
+
 ENV GOBIN=/usr/bin
+ENV GOROOT=/usr/local/go
+ENV GOTOOLDIR=/usr/lib/go/pkg/tool/linux_amd64
 
 CMD ["/bin/bash"]
