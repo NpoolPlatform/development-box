@@ -7,6 +7,12 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 RUN apt-get update -y
 RUN apt-get install git make curl jq wget apt-utils vim net-tools sudo iputils-ping iproute2 openssh-server nfs-common dnsutils -y
 
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+RUN sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' /etc/ssh/sshd_config
+RUN sed -i 's/$AuthorizedKeysFile/AuthorizedKeysFile/g' /etc/ssh/sshd_config
+RUN sed -i 's/UsePAM yes/UsePam no/g' /etc/ssh/sshd_config
+RUN echo root:12345679 | chpasswd
+
 ARG ALL_PROXY
 RUN apt-get install golang-go -y
 
