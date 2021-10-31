@@ -7,13 +7,13 @@ pipeline {
     go 'go'
   }
   stages {
-    stage('Clone mysql cluster') {
+    stage('Clone development box cluster') {
       steps {
         git(url: scm.userRemoteConfigs[0].url, branch: '$BRANCH_NAME', changelog: true, credentialsId: 'KK-github-key', poll: true)
       }
     }
 
-    stage('Build mysql image') {
+    stage('Build development box image') {
       when {
         expression { BUILD_TARGET == 'true' }
       }
@@ -29,7 +29,7 @@ pipeline {
       }
     }
 
-    stage('Release mysql image') {
+    stage('Release development box image') {
       when {
         expression { RELEASE_TARGET == 'true' }
       }
@@ -38,7 +38,7 @@ pipeline {
       }
     }
 
-    stage('Deploy mysql cluster') {
+    stage('Deploy development box cluster') {
       when {
         expression { DEPLOY_TARGET == 'true' }
       }
