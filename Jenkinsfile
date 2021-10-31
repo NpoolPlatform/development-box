@@ -19,6 +19,15 @@ pipeline {
       }
       steps {
         sh 'mkdir -p .docker-tmp; cp /usr/bin/consul .docker-tmp'
+        sh(returnStdout: true, script: '''
+          set +e
+          docker images | grep development-box
+          rc=$?
+          set -e
+          if [ 0 -eq $rc ]; then
+            docker rmi entropypool/development-box:latest
+          fi
+        '''.stripIndent())
         sh 'docker build --build-arg=ALL_PROXY=$all_proxy -t entropypool/development-box .'
       }
     }
