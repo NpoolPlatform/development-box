@@ -11,6 +11,7 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh
 RUN sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' /etc/ssh/sshd_config
 RUN sed -i 's/$AuthorizedKeysFile/AuthorizedKeysFile/g' /etc/ssh/sshd_config
 RUN sed -i 's/UsePAM yes/UsePam no/g' /etc/ssh/sshd_config
+RUN sed -i 's/#Port 22222/Port 22/g' /etc/ssh/sshd_config
 RUN echo root:12345679 | chpasswd
 
 ARG ALL_PROXY
