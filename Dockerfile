@@ -12,8 +12,8 @@ RUN sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' /etc/ssh/ssh
 RUN sed -i 's/$AuthorizedKeysFile/AuthorizedKeysFile/g' /etc/ssh/sshd_config
 RUN sed -i 's/UsePAM yes/UsePam no/g' /etc/ssh/sshd_config
 RUN sed -i 's/#Port 22/Port 22/g' /etc/ssh/sshd_config
-RUN service ssh restart
 RUN echo root:12345679 | chpasswd
+RUN service ssh restart
 
 ARG ALL_PROXY
 RUN apt-get install golang-go -y
