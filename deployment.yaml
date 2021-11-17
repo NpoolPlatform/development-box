@@ -46,11 +46,11 @@ metadata:
   name: development-box
   namespace: kube-system
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 22
     targetPort: 22
-    nodePort: 32222
+    nodePort: 30022
     name: ssh
     protocol: TCP
   selector:
