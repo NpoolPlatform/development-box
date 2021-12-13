@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: development-box
-        image: entropypool/development-box:latest
+        image: uhub.service.ucloud.cn/entropypool/development-box:latest
         imagePullPolicy: Always
         env:
         - name: ENV_ENVIRONMENT_TARGET
