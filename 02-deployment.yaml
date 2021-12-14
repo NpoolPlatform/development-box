@@ -1,9 +1,10 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: development-box
   namespace: kube-system
 spec:
+  serviceName: "development-box"
   replicas: 1
   selector:
     matchLabels:
@@ -38,6 +39,13 @@ spec:
         - name: GOPROXY
           value: "https://goproxy.cn,direct"
         command: ["sleep", "100000000000000"]
+        volumeMounts:
+        - name: work
+          mountPath: /workspace
+      volumes:
+      - name: work
+        persistentVolumeClaim:
+          claimName: development-pvc
 
 ---
 apiVersion: v1

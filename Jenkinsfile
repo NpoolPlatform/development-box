@@ -58,7 +58,7 @@ pipeline {
         expression { DEPLOY_TARGET == 'true' }
       }
       steps {
-        sh 'kubectl apply -f deployment.yaml'
+        sh 'kubectl apply -k .'
       }
     }
   }
