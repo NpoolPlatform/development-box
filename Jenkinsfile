@@ -22,7 +22,7 @@ pipeline {
         sh(returnStdout: true, script: '''
           images=`docker images | grep entropypool | grep development-box | awk '{ print $3 }'`
           for image in $images; do
-            docker rmi $image
+            docker rmi $image -f
           done
         '''.stripIndent())
         sh 'docker build --build-arg=ALL_PROXY=$all_proxy -t entropypool/development-box .'
