@@ -25,7 +25,7 @@ pipeline {
             docker rmi $image -f
           done
         '''.stripIndent())
-        sh 'docker build --build-arg=ALL_PROXY=$all_proxy -t entropypool/development-box .'
+        sh 'docker build --build-arg=ALL_PROXY=$all_proxy -t uhub.service.ucloud.cn/entropypool/development-box .'
       }
     }
 
@@ -37,7 +37,7 @@ pipeline {
         sh(returnStdout: true, script: '''
           set +e
           while true; do
-            docker push entropypool/development-box:latest
+            docker push uhub.service.ucloud.cn/entropypool/development-box:latest
             if [ $? -eq 0 ]; then
               break
             fi
