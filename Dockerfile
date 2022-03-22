@@ -18,11 +18,11 @@ RUN service ssh restart
 ARG ALL_PROXY
 RUN apt-get install golang-go -y
 
-RUN all_proxy=$ALL_PROXY curl -sL -o /tmp/go1.16.7.tar.gz https://github.com/golang/go/archive/refs/tags/go1.16.7.tar.gz
+RUN all_proxy=$ALL_PROXY curl -sL -o /tmp/go1.17.8.tar.gz https://go.dev/dl/go1.17.8.src.tar.gz
 RUN mkdir -p /usr/local/go
-RUN cd /usr/local/go; tar xvvf /tmp/go1.16.7.tar.gz
-RUN mv /usr/local/go/go-go1.16.7/* /usr/local/go
-RUN rm -rf /usr/local/go/go-go1.16.7
+RUN cd /usr/local/go; tar xvvf /tmp/go1.17.8.tar.gz
+RUN mv /usr/local/go/go-go1.17.8/* /usr/local/go
+RUN rm -rf /usr/local/go/go-go1.17.8
 RUN cd /usr/local/go/src; ./all.bash
 RUN cp /usr/local/go/bin/go /usr/bin/go
 
