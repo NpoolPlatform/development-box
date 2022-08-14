@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
 spec:
   serviceName: "development-box"
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: development-box
