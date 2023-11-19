@@ -5,7 +5,8 @@ metadata:
   namespace: kube-system
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
+  # storageClassName: ebs-storageclass // when multi storageclass exist,you can sepcify
   resources:
     requests:
-      storage: 1Gi
+      storage: 5Gi
